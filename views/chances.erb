@@ -1,0 +1,22 @@
+
+<% count=5 %>
+<% if !@color.nil? %>
+    <div style='<%= @color %>'>
+<% else %>
+    <div>
+<% end %>
+    <h3><%= @close_guess %></h3>
+
+    <% if session[:guess_history].length() != 0%>
+        <p>You have <%= count - session[:guess_history].length() %> chances left.</p>
+    <% end%>
+    <div style='text-align: center; margin-top: 50px;'>
+        <form method="post" action="/">
+        <fieldset> 
+            <label for="guess">Guess a number from 1 to 100: (<%= session[:secret] %>)</label>
+            <input type="text" name="guess" id="guess">
+            <input type="submit">
+        </fieldset>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div>
+    <h3 style='color: red'><%= @close_guess %></h3>
+    <p>Secret number  was <%= session[:secret] %></p>
+    <% count=0 %>
+
+
+
+    <fieldset> 
+        <table>
+            <tr>
+                <th>Number of chance</th>
+                <th>Estimated number</th>
+            </tr>
+            <% session[:guess_history].each do |item| %>
+                <tr>
+                    <td ><%= count+=1 %></td>
+                    <td ><%= item %></td>
+                </tr>
+            <% end %>
+        </table>
+    </fieldset>
+</div>
+
