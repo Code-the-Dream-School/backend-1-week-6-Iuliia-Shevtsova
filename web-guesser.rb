@@ -12,7 +12,7 @@ post "/" do
     params.inspect
     @guess = params["guess"].to_i
     session[:guess_history] <<  @guess
-    while session[:guess_history].length()<5 do
+    while session[:guess_history].length()<7 do
 
         if  session[:secret] != @guess
             if  (session[:secret] - @guess) > 10 
@@ -39,7 +39,7 @@ post "/" do
     end
     if session[:secret] == @guess
         erb :results
-    elsif session[:guess_history].length() == 5
+    elsif session[:guess_history].length() == 7
         @close_guess = "You lose..."
         erb :results
     else
